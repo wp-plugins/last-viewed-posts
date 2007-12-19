@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: Olaf Baumann
 Donate link: http://blog.zeitgrund.de/category/plugins/last-viewed-posts/
-Tags: comments, spam
+Tags: posts, viewed, recent, widget, sidebar, visitor, history
 Requires at least: 2.1
 Tested up to: 2.3.1
 Stable tag: 0.6
