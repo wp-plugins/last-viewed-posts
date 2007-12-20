@@ -1,17 +1,17 @@
 === Plugin Name ===
 Contributors: Olaf Baumann
 Donate link: http://blog.zeitgrund.de/category/plugins/last-viewed-posts/
-Tags: posts, viewed, recent, widget, sidebar, visitor, history
+Tags: posts, post, page, pages viewed, recent, widget, sidebar, visitor, history
 Requires at least: 2.1
 Tested up to: 2.3.1
-Stable tag: 0.6
+Stable tag: 0.7
 
-This plugin displays the posts that have been recently viewed by the visitor (single view). 
+This plugin displays the posts (and pages - if you want) that have been recently viewed by the visitor (single view). 
 Data is saved in cookie for each visitor.
 
 == Description ==
 
-This plugin displays the posts that have been recently viewed by the visitor (single view).
+This plugin displays the posts (and pages) that have been recently viewed by the visitor (single view).
 The posts are saved in in a cookie and by default the last 10 posts that have been visited are displayed.
 Note that this is NOT a global listing of recently viewed posts by all users! Nothing is stored in the database.
 Every vistor has his own unique listing of the single posts he has viewed.
@@ -38,9 +38,15 @@ The single template tag is shown below, but I recommend to use the code shown ab
 It prevents you from displaying a blank list if the visitor has cookies disabled or did not view any single post yet.
 <?php zg_recently_viewed(); ?>
 
-By default the cookie expires after 360 days and the number of entries that are displayed is 10.
-To change these values, edit the last_viewed_posts.php between the equals sign and the semicolon:<br />
+By default the cookie expires after 360 days, the number of entries that are displayed is 10 and pages are recognized.<br />
+To change these values, edit the last_viewed_posts.php between the equals sign and the semicolon:<br /><br />
 $zg_cookie_expire = 360; // After how many days should the cookie expire? Default is 360.<br />
-$zg_number_of_posts = 10; // How many posts should be displayed in the list? Default is 10. 
+$zg_number_of_posts = 10; // How many posts should be displayed in the list? Default is 10.<br />
+$zg_recognize_pages = true; // Should pages to be recognized and listed? Default is true.
+
+== Changelog ==
+
+0.7: 	- Pages can now be recognized (optional).
+	- Custom Loop is not longer used. Now we make a database query to get the post title.
 
 
