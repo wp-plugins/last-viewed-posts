@@ -44,4 +44,9 @@ $zg_cookie_expire = 360; // After how many days should the cookie expire? Defaul
 $zg_number_of_posts = 10; // How many posts should be displayed in the list? Default is 10.<br />
 $zg_recognize_pages = true; // Should pages to be recognized and listed? Default is true.
 
+== Changelog ==
+
+0.7: 	- Pages can now be recognized (optional).
+	- Custom Loop is not longer used. Now we make a database query to get the post title.
+
 
