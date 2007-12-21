@@ -18,7 +18,6 @@ Every vistor has his own unique listing of the single posts he has viewed.
 
 If cookies are not accepted or no single post has been clicked, no output will be displayed.
 The plugin comes with a widget and a template tag.
-Pages are not supported.
 
 == Installation ==
 
