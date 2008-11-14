@@ -2,7 +2,7 @@
 /*
 Plugin Name: Last Viewed Posts
 Plugin URI: http://blog.zeitgrund.de/category/plugins/last-viewed-posts/
-Description: Show a list of posts (and pages) the visitor had recently viewed. It's cookie based. Every visitor has his own listing. This is not a global output for all users! 
+Description: Show a list of posts (and pages) the visitor had recently viewed. It's cookie based. Every visitor has his own listing. This is not a global output for all users! Edit plugin-file to see and change options.
 Author: Olaf Baumann
 Version: 0.7
 Author URI: http://zeitgrund.de
@@ -23,8 +23,8 @@ Author URI: http://zeitgrund.de
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-	
-	
+
+
 Use:
 For the ouput use the sidebar widget OR place following code just anywhere (outside the loop) into your theme (e.g. sidebar.php).
 Note that the output will not appear if there's no cookie set (because cookies are disabled or the user didn't view any single post).
@@ -39,7 +39,7 @@ Note that the output will not appear if there's no cookie set (because cookies a
 
 /* Here are some parameters you may want to change: */
 $zg_cookie_expire = 360; // After how many days should the cookie expire? Default is 360.
-$zg_number_of_posts = 10; // How many posts should be displayed in the list? Default is 10. 
+$zg_number_of_posts = 10; // How many posts should be displayed in the list? Default is 10.
 $zg_recognize_pages = true; // Should pages to be recognized and listed? Default is true.
 
 /* Do not edit after this line! */
@@ -52,11 +52,11 @@ function zg_lwp_header() { // Main function is called every time a page/post is 
 		if ($zg_recognize_pages === true) {
 			zg_lw_setcookie();
 		}
-	}	
+	}
 }
 
 function zg_lw_setcookie() { // Do the stuff and set cookie
-	global $wp_query; 
+	global $wp_query;
 	$zg_post_ID = $wp_query->post->ID; // Read post-ID
 	if (! isset($_COOKIE["WP-LastViewedPosts"])) {
 		$zg_cookiearray = array($zg_post_ID); // If there's no cookie set, set up a new array
@@ -67,8 +67,8 @@ function zg_lw_setcookie() { // Do the stuff and set cookie
 		}
 	}
   	if (in_array($zg_post_ID, $zg_cookiearray)) { // If the item is already included in the array then remove it
-		$zg_key = array_search($zg_post_ID, $zg_cookiearray);  
-		array_splice($zg_cookiearray, $zg_key, 1);		
+		$zg_key = array_search($zg_post_ID, $zg_cookiearray);
+		array_splice($zg_cookiearray, $zg_key, 1);
 	}
 	array_unshift($zg_cookiearray, $zg_post_ID); // Add new entry as first item in array
 	global $zg_number_of_posts;
@@ -95,11 +95,11 @@ function zg_recently_viewed() { // Output
 		$zg_post_IDs = unserialize(preg_replace('!s:(\d+):"(.*?)";!e', "'s:'.strlen('$2').':\"$2\";'", stripslashes($_COOKIE["WP-LastViewedPosts"]))); // Read serialized array from cooke and unserialize it
 		foreach ($zg_post_IDs as $value) { // Do output as long there are posts
 			global $wpdb;
-			$zg_get_title = $wpdb->get_results("SELECT post_title FROM $wpdb->posts WHERE ID = '$value' LIMIT 1"); 		
+			$zg_get_title = $wpdb->get_results("SELECT post_title FROM $wpdb->posts WHERE ID = '$value' LIMIT 1");
 			foreach($zg_get_title as $zg_title_out) {
 				echo "<li><a href=\"". get_permalink($value) . "\" title=\"". $zg_title_out->post_title . "\">". $zg_title_out->post_title . "</a></li>\n"; // Output link and title
 			}
-		}		
+		}
 	} else {
 		//echo "No cookie found.";  // For bugfixing - uncomment to see if cookie was not set
 	}
@@ -114,12 +114,12 @@ function zg_lwp_widget($args) { // Widget output
 	if (isset($_COOKIE["WP-LastViewedPosts"])) {
 		echo $before_widget . $before_title . $title . $after_title;
 		zg_recently_viewed();
-		echo $after_widget; 
+		echo $after_widget;
 	}
 }
 
 function zg_lwp_widget_control() { // Widget control
-	$options = $newoptions = get_option('zg_lwp_widget');	
+	$options = $newoptions = get_option('zg_lwp_widget');
 	if ( $_POST['lwp-submit'] ) {
 		$newoptions['title'] = strip_tags(stripslashes($_POST['lwp-title']));
 	}
@@ -139,8 +139,8 @@ function zg_lwp_widget_control() { // Widget control
 function zg_lwp_init() { // Widget init
   	if ( !function_exists('register_sidebar_widget') )
   		return;
-	register_sidebar_widget('Last Viewed Posts','zg_lwp_widget');	
-  	register_widget_control('Last Viewed Posts','zg_lwp_widget_control', 250, 100);	
+	register_sidebar_widget('Last Viewed Posts','zg_lwp_widget');
+  	register_widget_control('Last Viewed Posts','zg_lwp_widget_control', 250, 100);
 }
 
 add_action('get_header','zg_lwp_header');
