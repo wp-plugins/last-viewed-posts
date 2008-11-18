@@ -4,7 +4,7 @@ Plugin Name: Last Viewed Posts
 Plugin URI: http://blog.zeitgrund.de/category/plugins/last-viewed-posts/
 Description: Show a list of posts (and pages) the visitor had recently viewed. It's cookie based. Every visitor has his own listing. This is not a global output for all users! Edit plugin-file to see and change options.
 Author: Olaf Baumann
-Version: 0.7
+Version: 0.7.1
 Author URI: http://zeitgrund.de
 */
 
@@ -95,9 +95,9 @@ function zg_recently_viewed() { // Output
 		$zg_post_IDs = unserialize(preg_replace('!s:(\d+):"(.*?)";!e', "'s:'.strlen('$2').':\"$2\";'", stripslashes($_COOKIE["WP-LastViewedPosts"]))); // Read serialized array from cooke and unserialize it
 		foreach ($zg_post_IDs as $value) { // Do output as long there are posts
 			global $wpdb;
-			$zg_get_title = $wpdb->get_results("SELECT post_title FROM $wpdb->posts WHERE ID = '$value' LIMIT 1");
+			$zg_get_title = $wpdb->get_results("SELECT post_title FROM $wpdb->posts WHERE ID = '$value+0' LIMIT 1");
 			foreach($zg_get_title as $zg_title_out) {
-				echo "<li><a href=\"". get_permalink($value) . "\" title=\"". $zg_title_out->post_title . "\">". $zg_title_out->post_title . "</a></li>\n"; // Output link and title
+				echo "<li><a href=\"". get_permalink($value+0) . "\" title=\"". $zg_title_out->post_title . "\">". $zg_title_out->post_title . "</a></li>\n"; // Output link and title
 			}
 		}
 	} else {
