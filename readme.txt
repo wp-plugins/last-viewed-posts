@@ -3,7 +3,7 @@ Contributors: Olaf Baumann
 Donate link: http://blog.zeitgrund.de/category/plugins/last-viewed-posts/
 Tags: posts, post, page, pages viewed, recent, widget, sidebar, visitor, history
 Requires at least: 2.1
-Tested up to: 2.7
+Tested up to: 2.7.1
 Stable tag: 0.7.1
 
 This plugin displays the posts (and pages - if you want) that have been recently viewed by the visitor (single view). 
