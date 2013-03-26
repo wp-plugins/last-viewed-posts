@@ -55,5 +55,7 @@ $zg_recognize_pages = true; // Should pages to be recognized and listed? Default
 * Pages can now be recognized (optional).
 * Custom Loop is not longer used. Now we make a database query to get the post title.
 
-== Known Issues ==
-Doesn't work on localhost.
+== Upgrade Notice ==
+
+= 0.7.2 =
+Maintainance release please upgrade. 
