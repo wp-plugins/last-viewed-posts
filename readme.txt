@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: Olaf Baumann
-Donate link: http://blog.zeitgrund.de/category/plugins/last-viewed-posts/
+Contributors: noumaan, Olaf Baumann, smub
+Donate link: http://www.wpbeginner.com
 Tags: posts, post, page, pages viewed, recent, widget, sidebar, visitor, history
 Requires at least: 2.1
-Tested up to: 2.7.1
-Stable tag: 0.7.1
+Tested up to: 3.5.1
+Stable tag: 0.7.2
 
 This plugin displays the posts (and pages - if you want) that have been recently viewed by the visitor (single view). 
 Data is saved in cookie for each visitor.
@@ -12,11 +12,12 @@ Data is saved in cookie for each visitor.
 == Description ==
 
 This plugin displays the posts (and pages) that have been recently viewed by the visitor (single view).
-The posts are saved in in a cookie and by default the last 10 posts that have been visited are displayed.
+The posts are saved in a cookie and by default the last 10 posts that have been visited are displayed.
 Note that this is NOT a global listing of recently viewed posts by all users! Nothing is stored in the database.
-Every vistor has his own unique listing of the single posts he has viewed.
+Every vistor has their own unique listing of the single posts that they have viewed.
 
 If cookies are not accepted or no single post has been clicked, no output will be displayed.
+
 The plugin comes with a widget and a template tag.
 
 == Installation ==
@@ -44,12 +45,15 @@ $zg_number_of_posts = 10; // How many posts should be displayed in the list? Def
 $zg_recognize_pages = true; // Should pages to be recognized and listed? Default is true.
 
 == Changelog ==
+= 0.7.2 = 
+* Plugin maintainance update.
 
-0.7: 	- Pages can now be recognized (optional).
-	- Custom Loop is not longer used. Now we make a database query to get the post title.
+= 0.7.1 =
+* Post/Page ID values in cookie are sanitized for output. Upgrade is recommend for more security.
 
-0.7.1:  - Post/Page ID values in cookie are sanitized for output. Upgrade is recommend for more security.
+= 0.7 =
+* Pages can now be recognized (optional).
+* Custom Loop is not longer used. Now we make a database query to get the post title.
 
 == Known Issues ==
-Does'nt work on localhost.
-
+Doesn't work on localhost.

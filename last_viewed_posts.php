@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Last Viewed Posts
-Plugin URI: http://blog.zeitgrund.de/category/plugins/last-viewed-posts/
+Plugin URI: http://www.wpbeginner.com
 Description: Show a list of posts (and pages) the visitor had recently viewed. It's cookie based. Every visitor has his own listing. This is not a global output for all users! Edit plugin-file to see and change options.
-Author: Olaf Baumann
-Version: 0.7.1
-Author URI: http://zeitgrund.de
+Author: Syed Balkhi
+Version: 0.7.2
+Author URI: http://www.wpbeginner.com
 */
 
 /* Copyright 2007 Olaf Baumann  (http://zeitgrund.de)
