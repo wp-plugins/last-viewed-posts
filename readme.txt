@@ -22,6 +22,8 @@ The plugin comes with a widget and a template tag.
 
 This plugin has been adopted and maintained by [WPBeginner](http://www.wpbeginner.com "WPBeginner - WordPress Tutorials for Beginners")
 
+[Take a look at plugins we are using at WPBeginner](http://www.wpbeginner.com/blueprint/ "Take a look at plugins we are using at WPBeginner")
+
 
 [Learn WordPress with free WPBeginner videos](http://videos.wpbeginner.com "Checkout out WPBeginner's WordPress tutorial videos")
 
