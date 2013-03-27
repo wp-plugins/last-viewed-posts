@@ -20,6 +20,12 @@ If cookies are not accepted or no single post has been clicked, no output will b
 
 The plugin comes with a widget and a template tag.
 
+This plugin has been adopted and maintained by [WPBeginner](http://www.wpbeginner.com "WPBeginner - WordPress Tutorials for Beginners")
+
+
+[Learn WordPress with free WPBeginner videos](http://videos.wpbeginner.com "Checkout out WPBeginner's WordPress tutorial videos")
+
+
 == Installation ==
 
 Viewed posts are always tracked as long as the plugin is active and the visitor has enabled the cookies.
@@ -55,5 +61,7 @@ $zg_recognize_pages = true; // Should pages to be recognized and listed? Default
 * Pages can now be recognized (optional).
 * Custom Loop is not longer used. Now we make a database query to get the post title.
 
-== Known Issues ==
-Doesn't work on localhost.
+== Upgrade Notice ==
+
+= 0.7.2 =
+Maintainance release please upgrade. 
